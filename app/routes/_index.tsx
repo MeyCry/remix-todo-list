@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Todo } from '~/components/todo/todo';
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,6 +10,8 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div></div>
+    <div>
+      <Todo />
+    </div>
   );
 }
