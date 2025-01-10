@@ -4,35 +4,15 @@
  * For more information, see https://remix.run/file-conventions/entry.client
  */
 
-import { RemixBrowser } from '@remix-run/react';
-import { startTransition, StrictMode } from 'react';
-import { hydrateRoot } from 'react-dom/client';
-
-window.requestIdleCallback =
-  window.requestIdleCallback ||
-  function (cb) {
-    const start = Date.now();
-    return setTimeout(function () {
-      cb({
-        didTimeout: false,
-        timeRemaining: function () {
-          return Math.max(0, 50 - (Date.now() - start));
-        },
-      });
-    }, 1);
-  };
-
-window.cancelIdleCallback =
-  window.cancelIdleCallback ||
-  function (id) {
-    clearTimeout(id);
-  };
+import { RemixBrowser } from "@remix-run/react";
+import { startTransition, StrictMode } from "react";
+import { hydrateRoot } from "react-dom/client";
 
 startTransition(() => {
   hydrateRoot(
     document,
     <StrictMode>
-      <RemixBrowser/>
-    </StrictMode>,
+      <RemixBrowser />
+    </StrictMode>
   );
 });
